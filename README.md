@@ -41,16 +41,17 @@ On VSCode Press 'Ctrl + shift +  x ' to open the extensions view.
 
 And install the Cuke Step Definition Generator
 
-![image](https://github.com/user-attachments/assets/c22523dd-bfc7-4a04-a69c-5cdd1f1946b4)
+![image](https://github.com/user-attachments/assets/8770598b-d3e8-4339-b601-f7cd42b10129)
 
 
 On VSCode Press ' Ctrl + , ' to open the settings view.
 
-![image](https://github.com/user-attachments/assets/2cd17715-3d74-419c-8139-87e8ba33f1f4)
+![image](https://github.com/user-attachments/assets/fc742eb5-e29f-4598-b26e-c1bd9fb54845)
+
 
 Search for "Cucumber" and click on "Edit in settings.json".
 
-![image](https://github.com/user-attachments/assets/6567f02f-2338-4cef-833b-db8027491bea)
+![image](https://github.com/user-attachments/assets/0edf50e5-f289-4517-b352-5152f7bba56b)
 
 
 Paste the following configuration:
@@ -282,7 +283,7 @@ Public Methods: Represent actions that can be performed on the page and result v
 ```bash
 npm test
 ```
-![image](https://github.com/user-attachments/assets/593650eb-05f1-4b56-86ff-9b5f55391865)
+![image](https://github.com/user-attachments/assets/afc20e81-e495-4de3-a661-cbae13bb7ac4)
 
 - Description:
 - This command runs the tests in headless mode. "Headless" means that the tests are executed in the background without a visible browser window.
@@ -314,12 +315,12 @@ Unlike npm run open, which allows for interactive selection of tests, npm run te
 2. Real-Time Execution
 Execution View:
 
-![image](https://github.com/user-attachments/assets/e44e085b-cae9-40a9-8d3b-b489ad6620d0)
+![image](https://github.com/user-attachments/assets/dcc606dd-74f2-4a5b-af15-f99564b9aa37)
 
 You can watch the tests being executed in real time within the browser window.
 This provides visual feedback on how tests interact with your application as they run.
 
-![image](https://github.com/user-attachments/assets/69be9ef5-46d0-40af-bf2c-aa5a33bbf739)
+![image](https://github.com/user-attachments/assets/2c42269c-257d-449c-8a57-1773518182a9)
 
 3. Automatic Closure
 Post-Execution Behavior:
@@ -357,7 +358,7 @@ When you run npm run open, Cypress launches a graphical user interface (GUI) cal
 1. Choose Your Browser
 Browser Selection:
 
-![image](https://github.com/user-attachments/assets/9893ced4-1426-4a51-86eb-732355845672)
+![image](https://github.com/user-attachments/assets/8d89d3d9-9573-4193-acbd-4b89bd0396a6)
 
 Upon launching, Cypress provides the option to select which browser you want to use for running your tests.
 You can choose from installed browsers like Chrome, Firefox, Edge, etc., depending on your setup and preferences.
@@ -366,7 +367,7 @@ You can choose from installed browsers like Chrome, Firefox, Edge, etc., dependi
 2. Select Tests Using the GUI
 Interactive Test Selection:
 
-![image](https://github.com/user-attachments/assets/f63a9d3c-0a46-40fa-89d8-ed3508313fe3)
+![image](https://github.com/user-attachments/assets/b3074b81-cca7-4c6d-986e-d861c21d90fa)
 
 The Test Runner presents a list of available test files or scenarios.
 You can manually select which test files or specific test cases you want to execute.
@@ -375,7 +376,7 @@ This is useful for running specific tests without executing the entire suite, wh
 3. View Test Execution
 Real-Time Execution:
 
-![image](https://github.com/user-attachments/assets/30d5b34f-263a-4567-a49c-e0d4d02a6a63)
+![image](https://github.com/user-attachments/assets/b52025f2-cf62-4c72-8ba3-b2e2b4ee667e)
 
 As you run the tests, the Test Runner displays a real-time view of the browser window where the tests are being executed.
 You can watch the tests interact with the application as they run, providing immediate visual feedback.
@@ -396,9 +397,9 @@ You can observe application behavior and test results directly, making it easier
 
 # How Test Reports Are Generated 📑
 
-![image](https://github.com/user-attachments/assets/ac0da265-6b68-4f84-8f59-d94f2a151026)
+![image](https://github.com/user-attachments/assets/b2b0010f-1327-4b9d-815d-3080f968e3c9)
 
-![image](https://github.com/user-attachments/assets/1f1bb3a8-7150-4750-a1ff-bb682c640c91)
+![image](https://github.com/user-attachments/assets/4b409009-4218-4327-be15-acaadfca5e3b)
 In this testing framework, the generation of test reports depends on which command you use to run your tests. Here’s how it works:
 
 1. Running Cypress with npm run open
@@ -449,7 +450,7 @@ Open the Report:
 
 Inside the cucumber-htmlreport.html folder, locate the index.html file. Open this file with your web browser to view the test report.
 
-![Reports (1)](https://github.com/user-attachments/assets/7a99c25f-a006-4d3e-9ff8-f8ded4282641)
+![image](https://github.com/user-attachments/assets/bdbcc386-e909-4b76-8e48-4755b28001c9)
 
 2. Sharing the Report 🤝
 - To Share the Report Locally:
