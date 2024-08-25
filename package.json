@@ -1,0 +1,21 @@
+{
+  "name": "qa-automation-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "open": "cypress open --e2e",
+    "test:headful": "cypress run --headed & node cucumber-html-report.js",
+    "test": "cypress run --headless & node cucumber-html-report.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "cypress": "^13.13.0",
+    "multiple-cucumber-html-reporter": "^3.6.2",
+    "typescript": "^5.5.3"
+  }
+}

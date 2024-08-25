@@ -1,0 +1,77 @@
+name: CI/CD
+
+on:  
+  workflow_dispatch:
+    inputs:
+      os:
+        description: 'Choose the OS for the workflow'
+        required: true
+        default: 'ubuntu-latest'
+        type: choice
+        options:
+          - 'ubuntu-latest'
+          - 'windows-latest'
+          - 'macOS-latest'
+      create_report:
+        description: 'Choose whether to create and upload the test report'
+        required: true
+        default: 'no'
+        type: choice
+        options:
+          - 'yes'
+          - 'no'
+      auto_schedule:
+        description: 'Should the workflow run automatically?'
+        required: true
+        default: 'no'
+        type: choice
+        options:
+          - 'yes'
+          - 'no'
+      schedule_interval:
+        description: 'Choose the interval for automatic runs (e.g., daily, weekly, monthly )'
+        required: false
+        type: choice
+        options:
+          - 'daily'
+          - 'weekly'
+          - 'monthly'
+
+jobs:
+  Test-web:
+    runs-on: ${{ github.event.inputs.os }}
+    if: ${{ github.event.inputs.auto_schedule == 'no' || github.event.inputs.schedule_interval }}
+   
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run Cypress tests
+        run: npx cypress run  
+      
+      - name: Create report
+        if: ${{ github.event.inputs.create_report == 'yes' }}
+        run: node cucumber-html-report.js 
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        if: ${{ github.event.inputs.create_report == 'yes' }}
+        with:
+          name: test-report-${{ github.event.inputs.os }}
+          path: |
+            ./reports
+      # - name: Repository Dispatch
+      #   uses: peter-evans/repository-dispatch@v3
+      #   with:
+      #     token: ${{ secrets.ACCESS_TOKEN }}  
+      #     repository: FasterWayToFatLoss/devops/test_discord_message  
+      #     event-type: my-event
+      #     client-payload: '{"event": "${{ github.event_name }}", "repo": "${{ github.repository }}", "ref": "${{ github.ref }}", "workflow": "${{ github.workflow }}", "author": "${{ github.actor }}", "commit_url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}", "commit_message": "${{ github.event.head_commit.message }}", "pipeline_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}","mensaje": "New pull request", "color": 65280 }'
