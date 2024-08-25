@@ -1,4 +1,4 @@
-# qa-automation-web
+# Cypress-TS-CucumberPo-Web
 
 - [Actions-CI/CD](./ACTIONS.md)
 
