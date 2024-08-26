@@ -286,7 +286,7 @@ Public Methods: Represent actions that can be performed on the page and result v
 ```bash
 npm test
 ```
-![image](https://github.com/user-attachments/assets/afc20e81-e495-4de3-a661-cbae13bb7ac4)
+![image](https://github.com/user-attachments/assets/493cf0b5-a216-4973-b44c-93002f8c3628)
 
 - Description:
 - This command runs the tests in headless mode. "Headless" means that the tests are executed in the background without a visible browser window.
