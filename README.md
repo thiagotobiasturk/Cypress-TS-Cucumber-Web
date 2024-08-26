@@ -1,5 +1,8 @@
 # Cypress-TS-CucumberPo-Web
 
+![Diseño sin título](https://github.com/user-attachments/assets/9a468767-f2b9-44f8-8933-359c04162f0a)
+
+
 - [Actions-CI/CD](./ACTIONS.md)
 
 ## Requirements  🧾 
