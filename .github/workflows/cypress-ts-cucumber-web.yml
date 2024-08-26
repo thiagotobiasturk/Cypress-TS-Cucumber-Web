@@ -36,6 +36,15 @@ on:
           - 'daily'
           - 'weekly'
           - 'monthly'
+      browser:
+        description: 'Choose the browser for running the tests'
+        required: true
+        default: 'chromium'
+        type: choice
+        options:
+          - 'chromium'
+          - 'firefox'
+          - 'webkit'
 
 jobs:
   Test-web:
@@ -57,7 +66,7 @@ jobs:
       - name: Run Cypress tests
         run: |
            node ./printFile.js
-           npx cypress run  
+           npx cypress run --browser ${{ github.event.inputs.browser }}
       
       - name: Create report
         if: ${{ github.event.inputs.create_report == 'yes' }}
@@ -70,6 +79,7 @@ jobs:
           name: test-report-${{ github.event.inputs.os }}
           path: |
             ./reports
+
       # - name: Repository Dispatch
       #   uses: peter-evans/repository-dispatch@v3
       #   with:
