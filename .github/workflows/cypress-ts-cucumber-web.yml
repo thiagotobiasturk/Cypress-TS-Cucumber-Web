@@ -44,7 +44,7 @@ on:
         options:
           - 'chromium'
           - 'firefox'
-          - 'webkit'
+          - 'electron'
 
 jobs:
   Test-web:
