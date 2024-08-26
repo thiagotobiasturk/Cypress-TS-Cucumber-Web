@@ -472,4 +472,5 @@ Share the compressed file with others. They can then extract the contents and op
 
 # Author 🛠️
 Thiago Tobias Turk
+
 www.linkedin.com/in/thiago-tobias-turk-4462542a9
