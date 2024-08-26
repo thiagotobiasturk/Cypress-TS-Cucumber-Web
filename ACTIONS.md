@@ -10,7 +10,7 @@ This repository uses GitHub Actions to manage continuous integration and continu
 This repository uses a GitHub Actions workflow named `CI/CD` that allows you to run tests on different operating systems, generate test reports, and configure the frequency of automatic pipeline execution. This workflow is triggered by a `workflow_dispatch` event, which means you can start it manually and customize the configuration through inputs.
 
 ## Execution Options
-![image](https://github.com/user-attachments/assets/540ce073-ea8f-42a6-8be9-f2082b30b1ff)
+![image](https://github.com/user-attachments/assets/9ed67473-d621-4b70-9cfe-e032a0eb669c)
 
 ### Operating Systems
 
@@ -23,6 +23,18 @@ The `CI/CD` workflow allows you to choose which operating system you want to run
 - **macOS**
 
 You can select the desired operating system when manually starting the workflow.
+
+### Browsers
+
+![image](https://github.com/user-attachments/assets/ac30c4a4-8d9c-4dae-95be-71ec923c95e1)
+
+In addition to choosing the operating system, you can also select the browser in which to run the tests. The available options are:
+
+- **Chromium**
+- **Firefox**
+- **electron**
+
+This feature allows for flexible testing across different browsers, ensuring that your application works as expected in multiple environments. You can specify the desired browser when manually starting the workflow.
 
 ### Test Reports
 
