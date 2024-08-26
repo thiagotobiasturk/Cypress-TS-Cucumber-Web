@@ -1,103 +1,64 @@
 [
   {
-    "description": "auth user ",
+    "description": "",
     "elements": [
       {
         "description": "",
-        "id": "test-automation;loguearse-correctamente-en--practice-automation",
+        "id": "user-login;successful-login-with-valid-credentials",
         "keyword": "Scenario",
-        "line": 3,
-        "name": "Loguearse correctamente en  Practice Automation",
+        "line": 7,
+        "name": "Successful login with valid credentials",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 4,
-            "name": "El usuario esta en la pagina de Practice Automation",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2352000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
             "line": 5,
-            "name": "El usuario hace click en \"Practice\"",
+            "name": "the user is on the login page",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 575000000
+              "duration": 20147000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 6,
-            "name": "El usuario hace Click en \"Test Login Page\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 483000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 7,
-            "name": "El usuariO completa el campo username",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 265000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
             "line": 8,
-            "name": "El usuario Completa el campo password",
+            "name": "the user enters valid credentials",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 315000000
+              "duration": 567000000
             }
           },
           {
             "arguments": [],
-            "keyword": "When ",
+            "keyword": "And ",
             "line": 9,
-            "name": "El usuario Hace click en Submit",
+            "name": "the user submits the login form",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 1633000000
+              "duration": 11476000000
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 10,
-            "name": "Se muestra el  mensaje \"Logged In Successfully\"",
+            "name": "the user should be redirected to the dashboard",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 32000000
+              "duration": 29000000
             }
           }
         ],
@@ -106,61 +67,124 @@
       },
       {
         "description": "",
-        "id": "test-automation;loguearse-correctamente-en--sauce-labs",
-        "keyword": "Scenario",
-        "line": 12,
-        "name": "Loguearse correctamente en  sauce labs",
+        "id": "user-login;unsuccessful-login-with-invalid-credentials",
+        "keyword": "Scenario Outline",
+        "line": 19,
+        "name": "Unsuccessful login with invalid credentials",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "line": 13,
-            "name": "El usuario abre la pagina de Sauce labs",
+            "line": 5,
+            "name": "the user is on the login page",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 451000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 14,
-            "name": "El usuario Completa el campo name",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 355000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 15,
-            "name": "El usuario completa el campo contrase;a",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 317000000
+              "duration": 2858000000
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "line": 16,
-            "name": "El usuario hace click",
+            "line": 13,
+            "name": "the user enters \"user1\" and \"pass1\"",
             "match": {
               "location": "not available:0"
             },
             "result": {
               "status": "passed",
-              "duration": 118000000
+              "duration": 430000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the user submits the login form",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 108000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the user should see an error message",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "user-login;unsuccessful-login-with-invalid-credentials",
+        "keyword": "Scenario Outline",
+        "line": 20,
+        "name": "Unsuccessful login with invalid credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6211000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "the user enters \"user2\" and \"pass2\"",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 422000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "the user submits the login form",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 108000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the user should see an error message",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 21000000
             }
           }
         ],
@@ -168,11 +192,11 @@
         "type": "scenario"
       }
     ],
-    "id": "test-automation",
-    "line": 1,
+    "id": "user-login",
+    "line": 2,
     "keyword": "Feature",
-    "name": "Test Automation",
+    "name": "User Login",
     "tags": [],
-    "uri": "cypress\\e2e\\features\\practiceAutomation.feature"
+    "uri": "cypress\\e2e\\features\\userLogin.feature"
   }
 ]

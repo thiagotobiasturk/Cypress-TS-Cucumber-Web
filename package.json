@@ -1,15 +1,16 @@
 {
-  "name": "cypress-ts-cucumber",
+  "name": "cypress-ts-cucumber-web",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "pretest": "node ./printFile.js",
     "open": "cypress open --e2e",
     "test:headful": "cypress run --headed & node cucumber-html-report.js",
     "test": "cypress run --headless & node cucumber-html-report.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
