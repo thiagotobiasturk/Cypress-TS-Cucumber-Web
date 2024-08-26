@@ -1,6 +1,6 @@
 # Cypress-TS-CucumberPo-Web
 
-![Diseño sin título](https://github.com/user-attachments/assets/9a468767-f2b9-44f8-8933-359c04162f0a)
+![Diseño sin título (1)](https://github.com/user-attachments/assets/6ee66bcc-bd11-49b0-bc43-d082e2703d79)
 
 
 - [Actions-CI/CD](./ACTIONS.md)
@@ -20,12 +20,12 @@ Open your terminal.
 Clone this repository:
 
 ```bash
- https://github.com/FasterWayToFatLoss/qa-automation-web.git
+git clone https://github.com/thiagotobiasturk/Cypress-TS-CucumberPo-Web.git 
 ```
 Navigate to the project folder:
 
 ```bash
- cd qa-automation-web
+ cd Cypress-TS-CucumberPo-Web
 ```
 Install dependencies:
 
