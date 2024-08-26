@@ -42,4 +42,4 @@ In addition to manual execution, you can configure automatic execution of the pi
 
 This configuration can be adjusted so that the pipeline runs automatically according to a defined schedule.
 
-- [Execute](https://github.com/FasterWayToFatLoss/qa-automation-web/actions/workflows/qa-automation-web.yml)
+- [Execute](https://github.com/thiagotobiasturk/Cypress-TS-CucumberPo-Web/actions/workflows/cypress-ts-cucumberpo-web.yml)
