@@ -1,20 +1,20 @@
 # Continuous Integration (CI/CD) with GitHub Actions
 
-![image](https://github.com/user-attachments/assets/4bd8d640-cb6f-48e5-80e3-d353b4bc7e4c)
+![image](https://github.com/user-attachments/assets/b9c117bc-db69-40ae-ac7a-e6edc15a076f)
 
 This repository uses GitHub Actions to manage continuous integration and continuous delivery (CI/CD) flexibly. Below, we explain how the workflow works, the available options, and how to configure them.
 
 ## Overview
-![image](https://github.com/user-attachments/assets/973aedab-e489-4539-aa21-13d7a10496aa)
+![image](https://github.com/user-attachments/assets/4a82f571-e340-41e2-be77-832e31463255)
 
 This repository uses a GitHub Actions workflow named `CI/CD` that allows you to run tests on different operating systems, generate test reports, and configure the frequency of automatic pipeline execution. This workflow is triggered by a `workflow_dispatch` event, which means you can start it manually and customize the configuration through inputs.
 
 ## Execution Options
-![image](https://github.com/user-attachments/assets/b620c5fb-87f7-42f9-9ccb-67a4fd1c37c6)
+![image](https://github.com/user-attachments/assets/540ce073-ea8f-42a6-8be9-f2082b30b1ff)
 
 ### Operating Systems
 
-![image](https://github.com/user-attachments/assets/7751602e-3fbc-45cf-8f26-22d90efc930b)
+![image](https://github.com/user-attachments/assets/40f56ded-ae56-44f7-b2e4-147921a39c04)
 
 The `CI/CD` workflow allows you to choose which operating system you want to run the pipeline on. The available options are:
 
@@ -26,13 +26,13 @@ You can select the desired operating system when manually starting the workflow.
 
 ### Test Reports
 
-![image](https://github.com/user-attachments/assets/c64b666c-fcdc-4d62-9f76-b8b402d599df)
+![image](https://github.com/user-attachments/assets/950950dc-918a-4b82-adf3-8b2c94a0b4ba)
 
 You can choose to generate a report of the tests. This option allows you to review the results of the executed tests in a detailed format. You can enable or disable this option according to your needs.
 
 ### Automatic Execution
 
-![image](https://github.com/user-attachments/assets/f627b1bb-51c2-46f2-9249-cf2713308661)
+![image](https://github.com/user-attachments/assets/ce5dd55d-288f-4f4b-afec-2e751c800bb6)
 
 In addition to manual execution, you can configure automatic execution of the pipeline. The available options are:
 
