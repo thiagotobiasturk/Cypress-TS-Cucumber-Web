@@ -55,7 +55,9 @@ jobs:
         run: npm install
         
       - name: Run Cypress tests
-        run: npx cypress run  
+        run: |
+           node ./printFile.js
+           npx cypress run  
       
       - name: Create report
         if: ${{ github.event.inputs.create_report == 'yes' }}
