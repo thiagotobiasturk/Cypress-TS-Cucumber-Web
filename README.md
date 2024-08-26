@@ -468,3 +468,7 @@ Compress the cucumber-htmlreport.html folder into a ZIP file (or any other prefe
 Share the compressed file with others. They can then extract the contents and open the index.html file in their browser to view the report.
 
 [cucumber-htmlreport.html.zip](https://github.com/user-attachments/files/16457164/cucumber-htmlreport.html.zip) 🗂️
+
+
+# Author 🛠️
+www.linkedin.com/in/thiago-tobias-turk-4462542a9
