@@ -59,8 +59,6 @@ on:
 jobs:
   setup:
     runs-on: ${{ github.event.inputs.os }}
-    outputs:
-      node-version: ${{ steps.node-setup.outputs.node-version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
