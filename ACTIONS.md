@@ -5,7 +5,6 @@
 This repository uses GitHub Actions to manage continuous integration and continuous delivery (CI/CD) flexibly. Below, we explain how the workflow works, the available options, and how to configure them.
 
 ## Overview
-![image](https://github.com/user-attachments/assets/686555f0-ab0e-48e3-8c1b-7f8bdc85caa6)
 
 This repository uses a GitHub Actions workflow named `CI/CD` that allows you to run tests on different operating systems, generate test reports, and configure the frequency of automatic pipeline execution. This workflow is triggered by a `workflow_dispatch` event, which means you can start it manually and customize the configuration through inputs.
 
