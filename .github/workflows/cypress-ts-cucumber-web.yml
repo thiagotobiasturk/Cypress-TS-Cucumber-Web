@@ -63,6 +63,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: List directory
+        run: ls -la  # or dir on Windows to verify the presence of package.json
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -115,11 +118,3 @@ jobs:
         with:
           name: test-report-${{ github.event.inputs.os }}-${{ matrix.instance }}
           path: ./reports
-
-      # - name: Repository Dispatch
-      #   uses: peter-evans/repository-dispatch@v3
-      #   with:
-      #     token: ${{ secrets.ACCESS_TOKEN }}  
-      #     repository: FasterWayToFatLoss/devops/test_discord_message  
-      #     event-type: my-event
-      #     client-payload: '{"event": "${{ github.event_name }}", "repo": "${{ github.repository }}", "ref": "${{ github.ref }}", "workflow": "${{ github.workflow }}", "author": "${{ github.actor }}", "commit_url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}", "commit_message": "${{ github.event.head_commit.message }}", "pipeline_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}","mensaje": "New pull request", "color": 65280 }'
