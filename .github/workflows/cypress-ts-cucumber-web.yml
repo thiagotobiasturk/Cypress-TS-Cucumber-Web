@@ -47,52 +47,41 @@ on:
           - 'electron'
 
 jobs:
-  setup:
+  Test-web:
+    strategy:
+      matrix:
+        instance: [1, 2, 3, 4]  # Creates 4 parallel jobs
+
     runs-on: ${{ github.event.inputs.os }}
     if: ${{ github.event.inputs.auto_schedule == 'no' || github.event.inputs.schedule_interval }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # Uncomment and use if dependencies need to be installed in the setup job
-      # - name: Install dependencies
-      #   run: npm install
-
-  tests:
-    needs: setup
-    runs-on: ${{ github.event.inputs.os }}
-    if: ${{ github.event.inputs.auto_schedule == 'no' || (github.event.inputs.auto_schedule == 'yes' && github.event.inputs.schedule_interval) }}
-    strategy:
-      matrix:
-        parallel_run: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Install dependencies
-        run: npm install
-
+        run: |
+          npm install
+        
       - name: Run Cypress tests
         run: |
-          node ./printFile.js
-          npx cypress run --browser ${{ github.event.inputs.browser }}
-
+           node ./printFile.js
+           npx cypress run --browser ${{ github.event.inputs.browser }}
+      
       - name: Create report
         if: ${{ github.event.inputs.create_report == 'yes' }}
-        run: node cucumber-html-report.js
+        run: node cucumber-html-report.js 
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
         if: ${{ github.event.inputs.create_report == 'yes' }}
         with:
-          name: test-report-${{ github.event.inputs.os }}
+          name: test-report-${{ github.event.inputs.os }}-${{ matrix.instance }}
           path: ./reports
 
       # - name: Repository Dispatch
