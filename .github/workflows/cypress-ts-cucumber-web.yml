@@ -1,6 +1,6 @@
 name: CI/CD
 
-on:  
+on:
   workflow_dispatch:
     inputs:
       os:
@@ -45,12 +45,26 @@ on:
           - 'chromium'
           - 'firefox'
           - 'electron'
+      node_version:
+        description: 'Choose the Node.js version for the workflow'
+        required: true
+        default: '21'
+        type: choice
+        options:
+          - '15'
+          - '18'
+          - '20'
+          - '21'
 
 jobs:
   Test-web:
+    strategy:
+      matrix:
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  
+
     runs-on: ${{ github.event.inputs.os }}
     if: ${{ github.event.inputs.auto_schedule == 'no' || github.event.inputs.schedule_interval }}
-   
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -58,7 +72,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: ${{ github.event.inputs.node_version }}
 
       - name: Install dependencies
         run: npm install
@@ -76,9 +90,8 @@ jobs:
         uses: actions/upload-artifact@v4
         if: ${{ github.event.inputs.create_report == 'yes' }}
         with:
-          name: test-report-${{ github.event.inputs.os }}
-          path: |
-            ./reports
+          name: test-report-${{ github.event.inputs.os }}-${{ matrix.instance }}
+          path: ./reports
 
       # - name: Repository Dispatch
       #   uses: peter-evans/repository-dispatch@v3
