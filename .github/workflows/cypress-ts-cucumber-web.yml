@@ -61,20 +61,14 @@ jobs:
     runs-on: ${{ github.event.inputs.os }}
     outputs:
       node-version: ${{ steps.node-setup.outputs.node-version }}
-      os: ${{ github.event.inputs.os }}
-      browser: ${{ github.event.inputs.browser }}
-      create-report: ${{ github.event.inputs.create_report }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        id: node-setup
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ github.event.inputs.node_version }}
-        outputs:
-          node-version: ${{ steps.node-setup.outputs.node-version }}
 
   cache:
     runs-on: ${{ github.event.inputs.os }}
@@ -91,11 +85,6 @@ jobs:
             ${{ runner.os }}-node-${{ github.event.inputs.node_version }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
-
-  matrix:
-    strategy:
-      matrix:
-        instance: [1, 2, 3, 4]  # Creates 4 parallel jobs
 
   test:
     runs-on: ${{ github.event.inputs.os }}
