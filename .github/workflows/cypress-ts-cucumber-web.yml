@@ -48,7 +48,7 @@ on:
       node_version:
         description: 'Choose the Node.js version for the workflow'
         required: true
-        default: '20'
+        default: '21'
         type: choice
         options:
           - '15'
@@ -68,18 +68,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Cache Node modules
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ github.event.inputs.node_version }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ github.event.inputs.node_version }}-
-            ${{ runner.os }}-node-
-            ${{ runner.os }}-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
