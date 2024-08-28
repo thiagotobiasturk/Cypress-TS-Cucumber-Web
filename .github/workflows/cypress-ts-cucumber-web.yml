@@ -57,24 +57,18 @@ on:
           - '21'
 
 jobs:
-  setup:
+  Test-web:
+    strategy:
+      matrix:
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  
+
     runs-on: ${{ github.event.inputs.os }}
+    if: ${{ github.event.inputs.auto_schedule == 'no' || github.event.inputs.schedule_interval }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: List directory
-        run: ls -la  # or dir on Windows to verify the presence of package.json
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ github.event.inputs.node_version }}
-
-  cache:
-    runs-on: ${{ github.event.inputs.os }}
-    needs: setup
-    steps:
       - name: Cache Node modules
         uses: actions/cache@v4
         with:
@@ -86,14 +80,11 @@ jobs:
             ${{ runner.os }}-node-${{ github.event.inputs.node_version }}-
             ${{ runner.os }}-node-
             ${{ runner.os }}-
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ github.event.inputs.node_version }}
 
-  test:
-    runs-on: ${{ github.event.inputs.os }}
-    needs: [setup, cache]
-    strategy:
-      matrix:
-        instance: [1, 2, 3, 4]  # Creates 4 parallel instances
-    steps:
       - name: Install dependencies
         run: npm install
         
@@ -101,20 +92,22 @@ jobs:
         run: |
            node ./printFile.js
            npx cypress run --browser ${{ github.event.inputs.browser }}
-
-  report:
-    runs-on: ${{ github.event.inputs.os }}
-    if: ${{ github.event.inputs.create_report == 'yes' }}
-    needs: test
-    strategy:
-      matrix:
-        instance: [1, 2, 3, 4]  # Creates 4 parallel instances
-    steps:
+      
       - name: Create report
+        if: ${{ github.event.inputs.create_report == 'yes' }}
         run: node cucumber-html-report.js 
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
+        if: ${{ github.event.inputs.create_report == 'yes' }}
         with:
           name: test-report-${{ github.event.inputs.os }}-${{ matrix.instance }}
           path: ./reports
+
+      # - name: Repository Dispatch
+      #   uses: peter-evans/repository-dispatch@v3
+      #   with:
+      #     token: ${{ secrets.ACCESS_TOKEN }}  
+      #     repository: FasterWayToFatLoss/devops/test_discord_message  
+      #     event-type: my-event
+      #     client-payload: '{"event": "${{ github.event_name }}", "repo": "${{ github.repository }}", "ref": "${{ github.ref }}", "workflow": "${{ github.workflow }}", "author": "${{ github.actor }}", "commit_url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}", "commit_message": "${{ github.event.head_commit.message }}", "pipeline_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}","mensaje": "New pull request", "color": 65280 }'
