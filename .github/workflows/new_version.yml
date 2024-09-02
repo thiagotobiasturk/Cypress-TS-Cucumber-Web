@@ -1,0 +1,42 @@
+name: Version Framework and Update Dependencies
+
+on:
+  workflow_dispatch:
+    inputs:
+      create_version:
+        description: 'Create a new version of the framework'
+        required: true
+        type: string
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check outdated dependencies
+        run: npm outdated
+
+      - name: Update dependencies
+        run: npm update
+
+      - name: Update dependencies
+        run: node /update.js
+
+      - name: Commit and push changes
+        if: ${{ github.event.inputs.create_version == 'yes' }}
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update dependencies and create new version"
+          git push
