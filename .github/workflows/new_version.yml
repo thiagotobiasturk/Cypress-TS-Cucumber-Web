@@ -24,6 +24,9 @@ jobs:
       - name: Update dependencies
         run: npm update
 
+      - name: Update dependencies
+        run: node /update.js
+
       - name: Commit and push changes
         run: |
           git config user.name "GitHub Actions"
