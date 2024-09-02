@@ -24,7 +24,7 @@ jobs:
       - name: Update dependencies
         run: npm update 
 
-      - name: Update dependencies
+      - name: Run custom update script
         run: node update.js
 
       - name: Commit and push changes
@@ -38,6 +38,21 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Update dependencies"
-            git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }} master
+            git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           fi
 
+      - name: Checkout master branch
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git fetch origin master
+          git checkout master
+          git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
+
+      # - name: Push changes to master branch
+      #   env:
+      #     GH_PAT: ${{ secrets.GH_PAT }}
+      #   run: |
+      #     git add .
+      #     git commit -m "Update dependencies on master branch"
+      #     git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
