@@ -49,10 +49,10 @@ jobs:
           git checkout master
           git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
 
-      # - name: Push changes to master branch
-      #   env:
-      #     GH_PAT: ${{ secrets.GH_PAT }}
-      #   run: |
-      #     git add .
-      #     git commit -m "Update dependencies on master branch"
-      #     git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
+      - name: Push changes to master branch
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git add .
+          git commit -m "Update dependencies on master branch"
+          git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
