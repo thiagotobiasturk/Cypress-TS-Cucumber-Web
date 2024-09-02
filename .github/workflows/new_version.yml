@@ -1,4 +1,4 @@
-name: Update Dependencies
+name: Update Version
 
 on:
   workflow_dispatch:
@@ -24,10 +24,10 @@ jobs:
       - name: Update dependencies
         run: npm update 
 
-      - name: Update dependencies
+      - name: Run custom update script
         run: node update.js
 
-      - name: Commit and push changes
+      - name: Commit and push changes to develop and master
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
@@ -38,5 +38,8 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Update dependencies"
-            git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
+            # Push to develop branch
+            git push origin develop
+            # Push to master branch
+            git push origin master
           fi
