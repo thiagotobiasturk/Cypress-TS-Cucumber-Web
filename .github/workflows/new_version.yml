@@ -24,8 +24,16 @@ jobs:
       - name: Update dependencies
         run: npm update 
 
-      - name: Update dependencies
-        run: node update.js
+      - name: Update package.json version
+        run: |
+          # Usa jq para actualizar la versión
+          # Asegúrate de que jq esté instalado; se instala en la imagen de ubuntu-latest por defecto
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+          echo "Current version is $CURRENT_VERSION"
+          # Incrementa la versión (aquí se incrementa el patch version, ajusta según sea necesario)
+          NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. -v OFS=. '{$NF++;print}')
+          jq --arg newVersion "$NEW_VERSION" '.version = $newVersion' package.json > tmp.json && mv tmp.json package.json
+          echo "Updated version to $NEW_VERSION"
 
       - name: Commit and push changes
         env:
