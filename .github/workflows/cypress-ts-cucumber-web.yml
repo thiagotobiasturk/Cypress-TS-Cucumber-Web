@@ -74,13 +74,6 @@ jobs:
         with:
           node-version: ${{ github.event.inputs.node_version }}
 
-      - name: Cache Cypress
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/Cypress
-          key: ${{ runner.os }}-cypress-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-cypress-
 
       - name: Install dependencies
         run: npm install
