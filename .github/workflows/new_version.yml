@@ -38,6 +38,7 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Update dependencies"
+            
             # Get the current branch name
             BRANCH_NAME=$(echo "${GITHUB_REF}" | sed 's/refs\/heads\///')
 
@@ -51,8 +52,11 @@ jobs:
               exit 1
             fi
 
-            # Push changes to target branches
+            # Pull the latest changes before pushing
             for BRANCH in "${TARGET_BRANCHES[@]}"; do
+              git fetch origin
+              git checkout ${BRANCH}
+              git pull origin ${BRANCH}
               git push https://x-access-token:${GH_PAT}@github.com/${{ github.repository }} HEAD:${BRANCH}
             done
           fi
