@@ -66,4 +66,4 @@ You can choose the version of Node.js to be used in the workflow. The available 
 
 This option ensures that your tests run in the desired Node.js environment, helping to maintain compatibility and stability across different Node.js versions.
 
-- [Execute](https://github.com/thiagotobiasturk/Cypress-TS-CucumberPo-Web/actions/workflows/cypress-ts-cucumberpo-web.yml)
+- [Execute](https://github.com/thiagotobiasturk/Cypress-TS-Cucumber-Web/actions/workflows/cypress-ts-cucumber-web.yml)
