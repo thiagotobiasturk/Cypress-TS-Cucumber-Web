@@ -5,6 +5,18 @@
 
 - [Actions-CI/CD](./ACTIONS.md)
 
+## Tools and Technologies Used
+<div align="center">  
+  <a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 2px" src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" height="75" /></a>  
+  <a href="https://www.javascript.com/" target="_blank"><img style="margin: 2px" src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" height="75" /></a>  
+  <a href="https://github.com/" target="_blank"><img style="margin: 2px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="75" /></a>  
+  <a href="https://www.cypress.io/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/e581fbed-fb39-4bed-a221-8921a1925921" height="75" /></a>
+  <a href="https://cucumber.io/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/4f94ac41-9d86-453d-9ed8-8a416a4f38a8" height="75" /></a>
+  <a href="https://nodejs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/nodejs-original-wordmark.svg" alt="Node.js" height="100" /></a> 
+ <a href="https://github.com/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/49766327-ba26-4422-83c0-93d3c9199f29" height="75" /></a>
+  <a href="https://code.visualstudio.com/" target="_blank"><img style="margin: 2px" src="https://github.com/user-attachments/assets/07a14efd-dcec-475d-9a56-d1ba1c726857" height="75" /></a>
+</div>  
+
 ## Requirements  🧾 
 
 - Node.js: Make sure you have Node.js installed on your system. You can download it from https://nodejs.org/en/download.
